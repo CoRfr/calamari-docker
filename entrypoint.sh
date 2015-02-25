@@ -10,5 +10,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-tail -f /var/log/salt/master
+/etc/init.d/supervisor start
+/etc/init.d/apache2 start
+
+tail -f /var/log/salt/master &
+tail -f /var/log/calamari/calamari.log &
+tail -f /var/log/calamari/httpd_error.log
 
