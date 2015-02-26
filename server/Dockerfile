@@ -43,6 +43,17 @@ RUN ( \
         locale-gen en_US.UTF-8 \
     )
 
+ENV BASE_REPO_FILE calamari-repo-precise.tar.gz
+
+RUN ( \
+        wget -O /tmp/${BASE_REPO_FILE} --quiet ${BASE_URL}/${BASE_REPO_FILE} && \
+        cd /opt/calamari/webapp/content && \
+        mkdir calamari-minions && \
+        cd calamari-minions && \
+        tar zxvf /tmp/${BASE_REPO_FILE} --strip 1 && \
+        rm /tmp/${BASE_REPO_FILE} \
+    ) 
+
 VOLUME ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 
 EXPOSE 4505 4506 80
