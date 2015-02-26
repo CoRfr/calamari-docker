@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM corfr/ceph-base
 
 RUN ( \ 
         apt-get update && \

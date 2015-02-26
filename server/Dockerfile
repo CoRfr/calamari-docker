@@ -56,7 +56,7 @@ RUN ( \
 
 VOLUME ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 
-EXPOSE 4505 4506 80
+EXPOSE 4505 4506 80 2003 2004
 
 ADD entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
